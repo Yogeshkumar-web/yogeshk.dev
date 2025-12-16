@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { Plus, Pencil, Trash2, Eye, EyeOff } from "lucide-react"
 
+import { BlogPost } from "@/types/blog"
+
 export default async function BlogPage() {
   const posts = await getPosts()
 
@@ -25,7 +27,7 @@ export default async function BlogPage() {
       </div>
 
       <div className="grid gap-4">
-        {posts.map((post) => (
+        {posts.map((post: BlogPost) => (
           <Card key={post.id}>
             <CardHeader>
               <div className="flex items-start justify-between">
