@@ -14,8 +14,8 @@ interface Experience {
 
 export function ExperienceSection({ experiences }: { experiences: Experience[] }) {
   return (
-    <section id="experience" className="container py-12 md:py-24">
-      <h2 className="mb-8 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+    <section id="experience" className="container py-8 md:py-16">
+      <h2 className="section-heading">
         Experience
       </h2>
       <div className="space-y-8">
@@ -42,7 +42,7 @@ export function ExperienceSection({ experiences }: { experiences: Experience[] }
                   </p>
                 </div>
               </div>
-              <div className="prose prose-sm dark:prose-invert max-w-none">
+              <div className="prose prose-base text-muted-foreground leading-relaxed dark:prose-invert max-w-none">
                 <div dangerouslySetInnerHTML={{ __html: exp.description.replace(/\n/g, '<br/>') }} />
               </div>
               <div className="flex flex-wrap gap-2 pt-2">

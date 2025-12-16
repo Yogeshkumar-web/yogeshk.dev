@@ -15,9 +15,9 @@ interface Post {
 
 export function BlogSection({ posts }: { posts: Post[] }) {
   return (
-    <section id="blog" className="container py-12 md:py-24">
+    <section id="blog" className="container py-8 md:py-16">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h2 className="section-heading mb-0">
           Blog
         </h2>
         <Button variant="ghost" asChild>
@@ -33,8 +33,8 @@ export function BlogSection({ posts }: { posts: Post[] }) {
             href={`/blog/${post.slug}`}
             className="group rounded-xl border bg-card p-6 transition-all hover:shadow-lg"
           >
-            <div className="space-y-2">
-              <div className="aspect-video rounded-lg bg-muted mb-4" />
+              <div className="space-y-2">
+                {/* Image placeholder removed as requested */}
               <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                 {post.title}
               </h3>

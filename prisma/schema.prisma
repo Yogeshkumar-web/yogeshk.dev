@@ -55,19 +55,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Project {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  imageUrl    String?
-  tags        String   // Comma separated tags
-  demoUrl     String?
-  repoUrl     String?
-  content     String?  // Markdown content
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+
 
 model Post {
   id        String   @id @default(uuid())
@@ -79,34 +67,9 @@ model Post {
   updatedAt DateTime @updatedAt
 }
 
-model Message {
-  id        String   @id @default(uuid())
-  name      String
-  email     String
-  content   String
-  createdAt DateTime @default(now())
-}
 
-model Experience {
-  id          String   @id @default(uuid())
-  company     String
-  role        String
-  location    String?
-  startDate   String   // e.g., "10-2022"
-  endDate     String?  // null for current, e.g., "∞" or "Present"
-  description String   // Markdown or bullet points
-  tags        String   // Comma separated tech stack
-  logo        String?  // Company logo URL or icon
-  order       Int      @default(0) // For sorting
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
 
-model TechStack {
-  id       String @id @default(uuid())
-  name     String
-  category String // e.g., "Frontend", "Backend", "Tools"
-  icon     String // Icon name or URL
-  order    Int    @default(0)
-}
+
+
+
 

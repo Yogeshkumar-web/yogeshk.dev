@@ -11,9 +11,10 @@ import { notFound } from "next/navigation"
 export default async function EditPostPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const post = await getPost(params.id)
+  const { id } = await params
+  const post = await getPost(id)
 
   if (!post) {
     notFound()
@@ -41,7 +42,8 @@ export default async function EditPostPage({
           <form
             action={async (formData) => {
               "use server"
-              await updatePost(params.id, formData)
+              const { id } = await params
+              await updatePost(id, formData)
             }}
             className="space-y-4"
           >

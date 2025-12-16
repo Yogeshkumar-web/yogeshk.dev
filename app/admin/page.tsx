@@ -1,13 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FolderKanban, Briefcase, FileText, Mail } from "lucide-react"
+import { FileText } from "lucide-react"
+import { getPublishedPosts } from "@/app/actions/blog"
 
-export default function AdminDashboard() {
-  // TODO: Fetch actual counts from database
+export default async function AdminDashboard() {
+  const posts = await getPublishedPosts()
+  
   const stats = [
-    { name: "Projects", count: 2, icon: FolderKanban },
-    { name: "Experiences", count: 2, icon: Briefcase },
-    { name: "Blog Posts", count: 2, icon: FileText },
-    { name: "Messages", count: 0, icon: Mail },
+    { name: "Blog Posts", count: posts.length, icon: FileText },
   ]
 
   return (

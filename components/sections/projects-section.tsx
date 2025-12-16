@@ -21,9 +21,9 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
 
   return (
-    <section id="projects" className="container py-12 md:py-24">
-      <h2 className="mb-2 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-        Projects <span className="text-muted-foreground text-2xl">({projects.length})</span>
+    <section id="projects" className="container py-8 md:py-16">
+      <h2 className="section-heading">
+        Projects <span className="text-muted-foreground text-xl font-normal">({projects.length})</span>
       </h2>
       <div className="mt-8 space-y-4">
         {displayedProjects.map((project) => (
@@ -41,7 +41,7 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
                   )}
                   <h3 className="text-xl font-semibold">{project.title}</h3>
                 </div>
-                <p className="text-muted-foreground">{project.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.split(",").map((tag, i) => (
                     <span

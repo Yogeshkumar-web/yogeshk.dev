@@ -26,6 +26,19 @@ export async function getPost(id: string) {
   })
 }
 
+export async function getPublishedPosts() {
+  return await prisma.post.findMany({
+    where: { published: true },
+    orderBy: { createdAt: "desc" },
+  })
+}
+
+export async function getPostBySlug(slug: string) {
+  return await prisma.post.findFirst({
+    where: { slug, published: true },
+  })
+}
+
 export async function createPost(formData: FormData) {
   const data = {
     title: formData.get("title") as string,

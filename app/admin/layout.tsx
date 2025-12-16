@@ -14,11 +14,7 @@ import {
 
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Projects", href: "/admin/projects", icon: FolderKanban },
-  { name: "Experience", href: "/admin/experience", icon: Briefcase },
-  { name: "Tech Stack", href: "/admin/tech-stack", icon: Code },
   { name: "Blog", href: "/admin/blog", icon: FileText },
-  { name: "Messages", href: "/admin/messages", icon: Mail },
 ]
 
 export default async function AdminLayout({
