@@ -2,10 +2,8 @@
 
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
-import { PrismaClient } from "@prisma/client"
+import prisma from "@/lib/prisma"
 import { z } from "zod"
-
-const prisma = new PrismaClient()
 
 const postSchema = z.object({
   title: z.string().min(1, "Title is required"),
