@@ -5,6 +5,8 @@ import { redirect } from "next/navigation"
 import prisma from "@/lib/prisma"
 import { z } from "zod"
 
+import { BlogPost } from "@/types/blog"
+
 const postSchema = z.object({
   title: z.string().min(1, "Title is required"),
   slug: z.string().min(1, "Slug is required"),
@@ -12,26 +14,26 @@ const postSchema = z.object({
   published: z.boolean().default(false),
 })
 
-export async function getPosts() {
+export async function getPosts(): Promise<BlogPost[]> {
   return await prisma.post.findMany({
     orderBy: { createdAt: "desc" },
   })
 }
 
-export async function getPost(id: string) {
+export async function getPost(id: string): Promise<BlogPost | null> {
   return await prisma.post.findUnique({
     where: { id },
   })
 }
 
-export async function getPublishedPosts() {
+export async function getPublishedPosts(): Promise<BlogPost[]> {
   return await prisma.post.findMany({
     where: { published: true },
     orderBy: { createdAt: "desc" },
   })
 }
 
-export async function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   return await prisma.post.findFirst({
     where: { slug, published: true },
   })

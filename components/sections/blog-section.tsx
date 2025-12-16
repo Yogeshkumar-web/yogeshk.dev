@@ -4,16 +4,9 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface Post {
-  id: string
-  title: string
-  slug: string
-  content: string
-  published: boolean
-  createdAt: Date
-}
+import { BlogPost } from "@/types/blog"
 
-export function BlogSection({ posts }: { posts: Post[] }) {
+export function BlogSection({ posts }: { posts: BlogPost[] }) {
   return (
     <section id="blog" className="container py-8 md:py-16">
       <div className="flex items-center justify-between mb-8">

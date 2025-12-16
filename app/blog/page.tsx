@@ -3,6 +3,8 @@ import { getPublishedPosts } from "@/app/actions/blog"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { EmptyState } from "@/components/ui/empty-state"
 
+import { BlogPost } from "@/types/blog"
+
 export default async function BlogPage() {
   const posts = await getPublishedPosts()
 
@@ -22,7 +24,7 @@ export default async function BlogPage() {
         />
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post: BlogPost) => (
             <Link key={post.id} href={`/blog/${post.slug}`}>
               <Card className="h-full transition-all hover:shadow-lg">
                 <CardHeader>
