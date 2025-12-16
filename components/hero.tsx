@@ -10,7 +10,7 @@ import {
     siTypescript,
     siTailwindcss,
     siDrizzle,
-} from "simple-icons/icons";
+} from "simple-icons";
 import { Button } from "@/components/ui/button";
 
 const TechBadge = ({ icon, name }: { icon: any; name: string }) => (
